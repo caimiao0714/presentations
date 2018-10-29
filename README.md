@@ -1,4 +1,5 @@
-# presentations
+# Presentations
 
-## 
-Urban-rural disparities in health care utilization among Chinese adults from 1993 to 2011
+## SLU CPHSJ Annual doctoral student symposium slides
+- 2017 the 4th: Does A Medical Consortium Influence Health Outcomes of Hospitalized Cancer Patients?An Integrated Care Model in Shanxi, China
+- 2018 the 5th: Factors Affecting Trucking Safety: A Hierarchical Bayes Model for Critical Events
