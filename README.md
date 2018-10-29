@@ -1,7 +1,7 @@
 # Presentations
 
 ## SLU CPHSJ Annual Doctoral Student Symposium slides
-These are the slides for The Annual Doctoral Student Symposium at College for Public Health and Social Justice, Saint Louis University. The event is typically held at the end of September each year.
+These are the slides for The Annual Doctoral Student Symposium at [College for Public Health and Social Justice, Saint Louis University](https://www.slu.edu/public-health-social-justice). The event is typically held at the end of September each year.
 - 2017/10/27 the 4th doctoral student symposium: (*Does A Medical Consortium Influence Health Outcomes of Hospitalized Cancer Patients? An Integrated Care Model in Shanxi, China*)
 - 2018/10/26 the 5th doctoral student symposium: (*Factors Affecting Trucking Safety: A Hierarchical Bayes Model for Critical Events*)
 
