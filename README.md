@@ -11,6 +11,7 @@ These are the slides for The Annual Doctoral Student Symposium at [College for P
 - 2018/05/03 BST5025 Theory of Biostatistics Section 2 presentation (*rural-urban disparity between US and China, A Frequentist perspective*)
 - 2018/05/03 BST5230 Bayesian Statistics presentation (*rural-urban disparity between US and China, A Bayesian perspective*)
 - 2018/11/01 Research Collaborative (*A Comparison of Hospitalized Patients between the U.S. and China, Ideas, Opportunities and Challenges*)
+- 2018/11/28 PHS6060 Grant writing final presentation (*The Association between Temperature Variation and the Outcomes of Hospitalized Cardiovascular Disease Patients in Shanxi, China*)
 
 ## Conference presentations
 - 2018/05/12 CHPAMS 2nd Biennial Conference at Yale University (*Shanxi Cancer Medical Consortium Pilot*)
