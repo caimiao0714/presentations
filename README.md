@@ -12,6 +12,8 @@ These are the slides for The Annual Doctoral Student Symposium at [College for P
 - 2018/05/03 BST5230 Bayesian Statistics presentation (*rural-urban disparity between US and China, A Bayesian perspective*)
 - 2018/11/01 Research Collaborative (*A Comparison of Hospitalized Patients between the U.S. and China, Ideas, Opportunities and Challenges*)
 - 2018/11/28 PHS6060 Grant writing final presentation (*The Association between Temperature Variation and the Outcomes of Hospitalized Cardiovascular Disease Patients in Shanxi, China*)
+- 2018/12/13 BST5200 Survival Data Analysis - Paper Critic (*Balancing the risk of the evacuation and sheltering-in-place options: a survival study following Japan’s 2011 Fukushima nuclear incident*)
+- 2018/12/13 BST5210 Categorical Data Analysis - Paper Critic (*Association of Acrylamide hemoglobin biomarkers with obesity, abdominal obesity and overweight in general US population: NHANES 2003-2006*)
 
 ## Conference presentations
 - 2018/05/12 CHPAMS 2nd Biennial Conference at Yale University (*Shanxi Cancer Medical Consortium Pilot*)
