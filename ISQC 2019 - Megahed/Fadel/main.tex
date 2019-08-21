@@ -1,0 +1,852 @@
+\documentclass[aspectratio=43]{beamer}
+\mode<beamer>
+
+\input{structure}
+\usepackage{svg}
+\svgsetup{inkscapelatex=false}
+
+%____________________ Title, Author, Affliation & Date____________________
+\title[SPC \& Human Performance Modeling]{A Statistical (Process Monitoring) Perspective on Human Performance Modeling in the Age of Cyber-Physical Systems}
+%\subtitle[Perspective and Guidelines]{Applications in Manufacturing, Transportation and Health Management}
+
+\author[Fadel M. Megahed]{Fadel M. Megahed\inst{1}, L. Allison Jones-Farmer\inst{1}, Miao Cai\inst{2}, Steven E. Rigdon\inst{2} and Manar Mohamed \inst{1}}
+\institute[Miami University]{\inst{1} Miami University, OH, USA \and \inst{2} Saint Louis University, MO, USA}
+
+
+\date[ISQC 2019]{August 14\textsuperscript{th}, 2019}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+% Frame 1
+\maketitle
+
+
+\section{Preface}
+% Frame 3
+\begin{frame}{\textbf{My Research Portfolio's Evolution}}
+    \centering
+    \only<1>{\includegraphics[height=0.8\textheight,
+    width=\textwidth, keepaspectratio, frame]{Figures/historymegahed.png}}
+    
+    \only<2>{\includegraphics[height=0.8\textheight,
+    width=\textwidth, keepaspectratio, frame]{Figures/papersmegahed.png}}
+    
+    \only<3>{\includegraphics[height=0.8\textheight,
+    width=\textwidth, keepaspectratio, frame]{Figures/dendomegahed.png}}
+\end{frame}
+
+\section{The Era of Cyber-Physical Systems (CPS)}
+
+\subsection{Perspectives from Industry and Governing Research Bodies}
+
+% Frame 5
+\begin{frame}{\textbf{Gartner's Hype Cycle for Emerging Technologies}}
+    \centering
+    \href{https://www.gartner.com/smarterwithgartner/5-trends-emerge-in-gartner-hype-cycle-for-emerging-technologies-2018/}{\includegraphics[width=\textwidth, height=0.8\textheight, frame]{Figures/2018_Hype_Cycle.png}}
+\end{frame}
+
+% Frame 6
+\begin{frame}{\textbf{NSF's Alignment with the Gartner's Perspective}}
+            ``Cyber-physical systems (CPS) are engineered systems that are built from, and depend upon, the seamless integration of computation and physical components. Advances in CPS will enable capability, adaptability, scalability, resiliency, safety, security, and usability that will expand the horizons of these critical systems. CPS technologies are transforming the way people interact with engineered systems, just as the Internet has transformed the way people interact with information. New, smart CPS drive innovation and competition in a range of application domains including agriculture, aeronautics, building design, civil infrastructure, energy, environmental quality, healthcare and personalized medicine, manufacturing, and transportation. Moreover, the \textcolor{miamired}{integration of artificial intelligence with CPS creates new research opportunities with major societal implications.}" \cite{nsf2019cps}
+\end{frame}
+
+% Frame 7
+\begin{frame}{\textbf{Expected Value for CPS Applications}}
+    \centering 
+    \includegraphics[width=\textwidth, height= 0.77\textheight, keepaspectratio, frame]{Figures/McKinsey-Global-Institute_IoT.jpg} 
+    
+    \tiny{\textbf{Source:} McKinsey\&Company. The McKinsey Global Institute \cite{mckinsey2015}.}
+ 
+\end{frame}
+
+\subsection{A Human-Centered Look on Cyber-Physical Systems}
+% Frame 8
+\begin{frame}{\textbf{Humans: A Cornerstone of CPS/IoT Applications}}
+    \begin{itemize}
+        \item<1-5> \textbf{From the McKinsey report \cite{mckinsey2015}, one can argue that data pertaining to human/workers is important to the following five applications:}
+        \begin{itemize}[<+>]
+            \item \textbf{Factories [Market size: \$1.2T-3.7T]}
+            \item \textbf{Human health and fitness [Market size: \$170B-1.6T]}
+            \item \textbf{Worksites [Market size: \$160B-930B]}
+            \item \textbf{Logistics and Navigation [Market size: \$560B-850B]}
+            \item \textbf{Offices [Market size: \$70B-150B]}
+        \end{itemize}
+        \item<6> \textbf{At a minimum, the market size for these five applications is estimated to be \$2.16T in 2025.}
+    \end{itemize}
+    
+    \only<7>{
+        \begin{eBox}
+        \centering 
+            \textbf{Is human performance monitoring an area of emphasis in our SQC research methodologies and/or applications?}
+        \end{eBox}
+    }
+\end{frame}
+
+\subsection{The SQC Community's Interest in Human Performance Modeling}
+% Frame 9
+\begin{frame}[t]{\textbf{SQC and Human Performance Monitoring}}
+  \begin{eBox}
+    \centering 
+    \textbf{The answer is \textcolor{miamired}{NO!!!} Here is how we reached this conclusion:} 
+  \end{eBox}
+  
+  \vspace{0.5\baselineskip}
+  
+  \only<1>{\textbf{(1) We ``read" \textcolor{miamired}{all 1576 articles published in}: \textit{JQT}, \textit{Technometrics}, \textit{QE}, and \textit{QREI} in 2014 - August 1, 2019. Here is what we have learned:}}
+  
+  \only<1>{\centering
+  \includegraphics[width=\textwidth, height = 0.6\textheight, keepaspectratio, frame]{Figures/conceptmap-1.png}}
+  
+  \only<2>{\textbf{(2) In the Frontiers of Statistical Quality Control 12, we had 20 outstanding contributions. The papers considered important application domains such as: web data, multi-stage processes, and single server queues.}
+  
+  \vspace{\baselineskip}
+  
+  \textbf{None of the papers explicitly considered monitoring human performance data. However, \textcolor{miamired}{the discussion in Lazariv and Schmid \cite{lazariv2018challenges} can be easily thought of in the context of human performance monitoring applications.}}}
+  
+  \only<3>{\textbf{(3) If we examine JQT as an example, it had three excellent special issues in 2018:}
+  \begin{itemize}
+      \item \textbf{``statistical process control on big data streams"}
+      \item \textbf{``quality engineering in advanced manufacturing"}
+      \item \textbf{``reliability and maintenance modeling with big data"}
+  \end{itemize}
+  
+  \vspace{\baselineskip}
+  
+  \textbf{None of the 19 special issue papers considered human performance modeling.}
+  }
+  
+  \only<4>{
+  \textbf{(4) Note: In ISQC 2019, we have had two excellent talks that discuss the combination of CPS technologies with individualized health monitoring.}
+  
+  \vspace{\baselineskip}
+  
+  \begin{itemize}
+      \item \textbf{\textcolor{miamired}{``Monitoring Two-state Processes Using Indirectly Observed Data"} by: O. Hryniewicz, K. Kaczmarek-Majer, K. Opara}
+      \item \textbf{\textcolor{miamired}{``Personalized Health Management for Elderly Care"} by: KL Tsui}
+  \end{itemize}
+  
+  \vspace{\baselineskip}
+  
+  \begin{dBox}
+    \textbf{So hopefully, these talks lead to increased interests in an important area that affects public interests and health.}
+  \end{dBox}
+  
+  }
+  
+  \only<5>{
+  \begin{dBox}
+    \textbf{Why should SQC care about human performance monitoring applications?} \textbf{\textcolor{gray}{If you think of advanced manufacturing, which is our most common application area in SQC and industrial statistics:}}
+  \end{dBox}
+  
+  \vspace{\baselineskip}
+  
+  \textbf{In addition to the potential of CPS technologies, there is a direct link of human performance to quality outcomes. In a recent review of 73 published empirical studies by \cite{kolus2018production}, the authors clearly stated that:}
+  
+  \begin{quotation}
+      \noindent \textbf{\textcolor{miamired}{Quality deficits were associated with undesirable human effects of workload like fatigue and injury-related risk factors. Forty-six percent of the studies reported on efforts to improve HF in the [operations systems] with effect sizes for quality improvements reaching up to 86\%.}}
+  \end{quotation}
+  }
+  
+\end{frame}
+
+\section{How SQC can Inform/Augment AI for CPS Applications}
+
+% Frame 11 - How People think about AI/Machine Learning
+\begin{frame}{\textbf{Common Frameworks for AI/ Machine Learning}}
+    
+    \only<1>{
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{|l|l|l|}
+        \hline 
+             \textbf{The KDD Process} & \textbf{SEMMA} & \textbf{CRISP-DM} \\ \hline \hline 
+             \rowcolor{gray!30}
+             Pre KDD & ------------- & Business understanding \\ \hline \hline 
+             Selection & Sample & \multirow{2}{*}{Data understanding} \\ \cline{1-2}
+             Pre processing & Explore & \\ \hline \hline 
+             \rowcolor{gray!30}
+             Transformation & Modify & Data preparation \\ \hline \hline 
+             Data mining & Model & Modeling \\ \hline \hline 
+             \rowcolor{gray!30}
+             Interpretation/Evaluation & Assessment & Evaluation \\ \hline \hline  
+             Post KDD &  ------------- & Deployment \\ \hline \hline 
+        \end{tabular}
+        \caption{A comparison of the three most commonly used AI/Machine Learning Frameworks. Table adapted from \cite{azevedo2008kdd}.}
+        \label{tab:frameworks}
+    \end{table}
+    }
+
+    \only<2>{
+    \begin{dBox}
+        \textbf{These three frameworks encourage iterating, but do not provide sufficient guidance to practitioners/ researchers. \textcolor{miamired}{Guidance:} Typically focuses on the data mining / modeling step.}
+    \end{dBox}
+    
+    \centering 
+    
+    \vspace{0.5\baselineskip}
+    
+    \includegraphics[width=\textwidth, height=0.6\textheight, keepaspectratio, frame]{Figures/ml_map.png} \\
+    
+    \tiny{\textbf{Source:} SciKit-Learn \cite{scikit2019choosing}}
+    }
+    
+\end{frame}
+
+% Frame 12 - An Engineering Perspective on SQC
+\begin{frame}{\textbf{An Engineering Perspective on SQC}}
+    
+    
+    \begin{eBox}
+        \textbf{In many engineering cases, the practitioner not only cares about a sound monitoring methodology, but also ensuring that the steady/in-control process is recovered as soon as a change occurs.}
+    \end{eBox}
+    
+    \vspace{2\baselineskip}
+
+    \smartdiagramset{
+        uniform color list=white for 5 items, uniform arrow color = true, arrow color = miamired, font=\small, module minimum width= 0.16\textwidth, module x sep= 0.2\textwidth
+    }
+    \smartdiagram[flow diagram:horizontal]{\textbf{Control \\ Chart}, \textbf{Fault \\ Detection}, \textbf{Fault \\ Isolation}, \textbf{Fault \\ Diagnosis}, \textbf{Process \\ Recovery}
+    }
+    
+    \centering{\tiny{\textbf{Source:} Figure adapted from \cite{chiang2000fault}}.}
+
+\end{frame}
+
+% Frame 13 - Role of SQC Methodologies
+\begin{frame}{\textbf{Role of SQC in AI/ ML (CPS) Applications}}
+    \begin{figure}[h!]
+		\begin{tikzpicture}[node distance=2cm, font=\footnotesize]
+		\tikzstyle{start} = [rectangle, rounded corners, minimum width=0.5\textwidth, minimum height=1cm,text badly centered, text width=0.5\textwidth, draw=black, thick, font=\large]
+		
+		\tikzstyle{categories} = [rectangle, rounded corners, minimum width=0.2\textwidth, minimum height=1cm,text centered, text width=0.2\textwidth, draw=black, fill=gray!10, thick]
+		
+		\tikzstyle{ml} = [rectangle, rounded corners, minimum width=0.2\textwidth, minimum height=1cm,text centered, text width=0.2\textwidth, draw=black, thick]
+		
+		\tikzstyle{arrow} = [->,>= triangle 45]
+		\tikzstyle{arrow2} = [<->,>= triangle 45]
+		%-------------------------------------------------------
+		% Begining of the creation of the figure
+		\node (start) [start] {\textbf{\textcolor{black}{SQC \textcolor{gray}{vs.} AI/ML methods}}};
+		
+			\node (n1) [categories, below of = start, xshift=-0.4\textwidth]{\textbf{\textcolor{black}{Change-point \\
+			\textcolor{miamired}{(Retrospective)}}}};
+			\node (n2) [categories, right of = n1,xshift=0.075\textwidth]{\textbf{\textcolor{black}{Surveillance \\ \textcolor{miamired}{(Retro/real-time)}}}};
+			\node (n3) [categories, right of = n2,xshift=0.075\textwidth]{\textbf{\textcolor{black}{Reliability \\ \textcolor{miamired}{(Predictive)}}}};
+			\node (n4) [categories, right of = n3, xshift=0.075\textwidth]{\textbf{\textcolor{black}{DoE \\\textcolor{miamired}{(Prescriptive)}}}};
+			
+			\node (n5) [ml, below of = n1]{\textbf{\textcolor{black}{(TS) clustering \\
+			\textcolor{miamired}{(Retrospective)}}}};
+			
+			\node (n6) [ml, below of = n2]{\textbf{\textcolor{black}{1-Class Classifier \\
+			\textcolor{miamired}{(Retro/real-time)}}}};	
+		    
+		    \node (n7) [ml, below of = n3]{\textbf{\textcolor{black}{CAR \\
+			\textcolor{miamired}{(Explain/Predict)}}}};
+		    
+		    \node (n8) [ml, below of = n4]{\textbf{\textcolor{black}{OFAT / T\&E \\
+			\textcolor{miamired}{(N/A)}}}};
+		    
+		\draw [arrow] (start.south) -| (n1);
+		\draw [arrow] (start.south) -| (n2);
+		\draw [arrow] (start.south) -| (n3);
+		\draw [arrow] (start.south) -| (n4);
+		
+		\draw [arrow2] (n1.south) -| node[anchor=west, yshift=-0.5cm]{\textbf{\textcolor{gray}{vs.}}}(n5);
+		\draw [arrow2] (n2.south) -| node[anchor=west, yshift=-0.5cm]{\textbf{\textcolor{gray}{vs.}}}(n6);
+		\draw [arrow2] (n3.south) -| node[anchor=west, yshift=-0.5cm]{\textbf{\textcolor{gray}{vs.}}}(n7);
+		\draw [arrow2] (n4.south) -| node[anchor=west, yshift=-0.5cm]{\textbf{\textcolor{gray}{vs.}}}(n8);
+		\end{tikzpicture}
+
+\end{figure}
+
+\pause
+
+\begin{eBox}
+    \textbf{Let us examine three examples (wearables, trucking \& cyber security).}
+\end{eBox}
+
+\end{frame}
+
+\section{Wearable Sensors for Physical Fatigue Management}
+
+% Frame 15
+\begin{frame}{\textbf{Wearables: How I got involved?}}
+    \centering 
+    \only<1>{\includegraphics[width=\textwidth, height=0.8\textheight, keepaspectratio, frame]{Figures/Box_Score.PNG}}
+    \only<2>{
+    \href{https://www.espn.com/college-football/story/_/id/11121315/florida-state-seminoles-coach-jimbo-fisher-use-gps-technology-win-national-championship}{\includegraphics[width=\textwidth, height=0.8\textheight, keepaspectratio, frame]{Figures/ESPN.PNG}}}
+\end{frame}
+
+% Frame 16
+\begin{frame}{\textbf{On the Role of Experimental Design to Collect Data}}
+
+\only<1>{
+    \begin{dBox}
+        \begin{itemize}
+            \item \textbf{Cross-sectional laboratory study using a one-factor within-subjects design.}
+            \item \textbf{Designed factor was the physical level of the task at three levels (low, medium, and high) based on postural, biomechanical, and physiological demand.}
+        \end{itemize}
+    \end{dBox}
+
+\begin{columns}
+    \begin{column}{0.3\textwidth}
+        \begin{figure}[b]
+            \centering
+            \includegraphics[height=0.35\textheight]{Figures/pa.jpg}
+            \caption{Part assembly}
+            \label{fig:pa}
+        \end{figure}
+    \end{column}
+    
+    \begin{column}{0.3\textwidth}
+        \begin{figure}[b]
+            \centering
+            \includegraphics[height=0.35\textheight]{Figures/si.jpg}
+            \caption{Supply pickup}
+            \label{fig:si}
+        \end{figure}
+    \end{column}
+    
+    \begin{column}{0.3\textwidth}
+        \begin{figure}[b]
+            \centering
+            \includegraphics[height=0.35\textheight]{Figures/mmh.jpg}
+            \caption{MMH}
+            \label{fig:mmh}
+        \end{figure}
+    \end{column}
+\end{columns}
+}
+
+\only<2>{
+    \centering
+    \includemedia[width=0.6\linewidth,height=0.8\textheight,activate=pageopen,
+    	passcontext,
+    	transparent,
+    	addresource=tasks.mp4,
+    	flashvars={
+    	source=tasks.mp4
+    	%&scaleMode=none
+    	}
+    	]{\includegraphics{Figures/tasksvideo.png}}{VPlayer.swf}
+}
+
+\end{frame}
+
+% Frame 17
+\begin{frame}{\textbf{Preliminary Analysis: Are the sensors a viable option?}}
+\centering
+\only<1>{
+    \includegraphics[width=\textwidth, height=0.75\textheight,keepaspectratio, frame]{Figures/zahra_model.jpg}
+}
+\only<2>{
+    \includegraphics[width=\textwidth, height=0.75\textheight,keepaspectratio, frame]{Figures/zahra_model2.jpg}
+}
+
+\textbf{For more details, please refer to our published paper in \cite{maman2017data}.}  
+\end{frame}
+
+% Frame 18
+\begin{frame}{\textbf{More Data, Better Features $\longrightarrow$ Less Sensors?}}
+    \centering 
+    \only<1>{
+    \includegraphics[width=\textwidth, height=0.75\textheight, keepaspectratio]{Figures/Methodology_FL.pdf}
+    }
+    \only<2>{
+    \includegraphics[width=\textwidth, height=0.75\textheight, keepaspectratio, frame]{Figures/feature_figure.pdf}
+    }
+    \only<3>{
+    \begin{table}[h!]
+	\fontsize{8}{9}\selectfont
+	\centering
+	\caption{Mean performance and the corresponding standard deviation of the classification methods for fatigue detection in MMH task, (the recommended model is \textbf{in bold})}
+	\label{table:Performance of classification methods_MMH}
+	\begin{tabular}{l l l l l r}
+		\hline
+		\textbf{Category} & \textbf{Model}  & \textbf{Sensitivity} & \textbf{Specificity} & \textbf{Accuracy} & $n_{features}$\\
+		\hline
+		&\textbf{Bagging} & \textbf{0.872 (0.13)} & \textbf{0.869 (0.15)} & \textbf{0.870 (0.09)} &  \textbf{5.352}\\
+		BSS&Boosting & 0.871 (0.13) & 0.872 (0.15) & 0.870 (0.08) & 5.352\\
+		%BSS&Random Forest & 0.879 (0.14) & 0.860 (0.15) & 0.865 (0.09) & 5.352\\
+		&Support Vector Machine & 0.811 (0.18) & 0.828 (0.17) & 0.820 (0.11) & 5.352\\
+		&Logistic Regression & 0.790 (0.17) & 0.766 (0.20) & 0.778 (0.11) & 5.352\\
+		\hline
+		LASSO&Penalized Logistic Regression* & 0.802 (0.20) & 0.916 (0.11) & 0.859 (0.11) & 18.943\\
+		&Penalized Logistic Regression  & 0.810 (0.13) & 0.775 (0.17) & 0.793 (0.08) & 11.133\\
+		\hline
+	\end{tabular}
+	\newline
+	
+ * features used in the model are only those generated in our preliminary analysis paper \cite{maman2017data}
+\end{table}
+}
+\only<4>{
+\vspace{-\baselineskip}
+\begin{table}[h!]
+	\fontsize{8}{8}\selectfont
+	\centering
+	\caption{Mean performance and standard deviation of the Bagging model}
+	\label{table:sensor combination_MMH}
+	\begin{tabular}{cllllllll}
+			\hline
+			\begin{tabular}[c]{@{}c@{}} \textbf{\#} \\  \textbf{sensors}\end{tabular} & \multicolumn{5}{c}{\textbf{Sensor Combination}}      & \textbf{Sensitivity}  & \textbf{Specificity} & \textbf{Accuracy}  \\ \hline
+		5                                                            & Ankle & Hip & Wrist & Torso & HR & 0.872 (0.13) & 0.869 (0.15) & 0.870 (0.09)     \\ \hline
+		\multirow{5}{*}{4}                                           & Ankle & Hip & Wrist & Torso &    & 0.875 (0.13) & 0.868 (0.15) & 0.871 (0.09)\\
+		& Ankle & Hip &       & Torso & HR & 0.850 (0.15)& 0.875 (0.13) & 0.862 (0.09)\\
+		&       & Hip & Wrist & Torso & HR & 0.877 (0.12)& 0.863 (0.15) & 0.870 (0.08)\\
+		& Ankle &     & Wrist & Torso & HR & 0.872 (0.12)& 0.864 (0.15) & 0.868 (0.08) \\
+		& Ankle & Hip & Wrist &       & HR & - & - & -  \\
+		\hline
+		
+		\multirow{10}{*}{3}                                          &       &     & Wrist & Torso  & HR &  0.877 (0.12) & 0.864 (0.15) & 0.870 (0.08) \\
+		& Ankle &   & & Torso & HR& 0.844 (0.15) & 0.874 (0.13) & 0.859 (0.09)  \\
+		& Ankle & Hip &   & Torso & & 0.850 (0.15) & 0.875 (0.13) & 0.862 (0.09) \\
+		&  & Hip & Wrist & Torso & & 0.877 (0.12) & 0.863 (0.15) & 0.870 (0.08) \\
+		&  & Hip &  & Torso & HR & 0.859 (0.15) & 0.875 (0.14) & 0.867 (0.10) \\
+		& Ankle & & Wrist & Torso &    & 0.873 (0.12) & 0.863 (0.15) & 0.868 (0.08) \\
+		& Ankle & Hip &   &   & HR & - & - & - \\
+		& Ankle & Hip & Wrist &   &    & - & - & - \\
+		& Ankle &  & Wrist &  &  HR  & - & - & - \\
+		&       & Hip & Wrist &   & HR & - & - & - \\ \hline
+		
+		\multirow{5}{*}{1}                                           &  & &  & \textbf{\textbf{Torso}} &  & \textbf{\textbf{0.842 (0.15)}} & \textbf{\textbf{0.859 (0.14)}} & \textbf{\textbf{0.851 (0.10)}} \\
+		& Ankle & &  & & &  - & - & -\\
+		& & Hip & & &   & - & - & -\\
+		&  &  & Wrist & &  & -  & - & -\\
+		& &  &  &  & HR & - & - & -\\
+		 \hline
+	\end{tabular}
+\end{table}
+
+}
+\end{frame}
+
+% Frame 19
+\begin{frame}{\textbf{Commentary: On the Use of Statistical and ML Models}}
+\begin{columns}
+    \begin{column}{0.5\textwidth}
+    \begin{dBox}
+        \begin{itemize}
+            \item \textbf{So far:} SPC has only inspired some of our features and possibly our DoE.
+            \item \textbf{Assumptions:} A dichotmous outcome variable (fatigued vs. not fatigued)
+            \item \textbf{In practice:} This is not probably how fatigue works. 
+        \end{itemize}
+    \end{dBox}
+    \end{column}
+    
+    \begin{column}{0.48\textwidth}
+        \centering 
+        \only<1>{\textcolor{white}{ABC}}
+        \only<2>{\href{https://img1.etsystatic.com/103/0/11771807/il_fullxfull.849338069_j4ui.jpg}{\includegraphics[width=0.6\textwidth, frame]{Figures/fatigue_no.jpg}}}
+        
+        \only<2>{\centering{\tiny{Source: Etsy Images}}}
+    \end{column}
+\end{columns}
+\end{frame}
+
+% Frame 20
+\begin{frame}{\textbf{A Change Point Approach: Examining Features}}
+    \centering
+    \href{https://fmegahed.github.io/fatigue_case_jqt.html}{
+    \includegraphics[width=\textwidth, height=0.8\textheight,keepaspectratio, frame]{Figures/GitHub.PNG}}
+\end{frame}
+
+% Frame 21
+\begin{frame}{\textbf{Research Opportunity: Low-Hanging SPM Fruit?}}
+    \begin{figure}
+    \begin{center}
+       \fbox{
+    		\animategraphics[label= fig:step, controls, autoplay, width= 0.68\linewidth]{1}{Figures/Step}{1}{10}
+	        } 
+    \end{center}
+    
+    \caption{Ten consecutive gait cycle segments for an arbitrary participant (P5). The x-axis represents time, and the y-axis captures the magnitude of acceleration.}
+    \label{fig:strides}
+\end{figure}
+\end{frame}
+
+% Frame 22
+\begin{frame}{\textbf{Some Other Research Opportunities [1]}}
+\begin{dBox}
+\begin{itemize}
+    \item<1> \textbf{\textcolor{miamired}{Retrospective Analysis:} Multiple change-point methodology for interdependent multivariate time-series. \textcolor{gray}{(Ideally, allowing for multiple change-points detection)}}
+    
+    \item<2>\textbf{\textcolor{miamired}{Real-time Surveillance:} Monitoring the probabilities of the ML/SL models. \textcolor{gray}{(In essence similar to our community's approach to risk-adjustment, e.g., see Steiner et al \cite{steiner2000monitoring})}}
+    
+    \item<3-5> \textbf{\textcolor{miamired}{Predicting Time-to-Fatigue:} Extending Reliability models for human data seems natural \textcolor{gray}{(see distinction from TTF models and machine learning applications)}}
+    \begin{itemize}
+        \item<4> \textbf{Fatigue Intervention} = \textbf{Maintenance}
+        \item<5> \textbf{Fatigue probability} $\ne$ \textbf{Fatigue probability}??
+    \end{itemize}
+    
+\end{itemize}
+    
+\end{dBox}
+    
+\end{frame}
+
+% Frame
+\begin{frame}{\textbf{Some Other Research Opportunities [2]}}
+    \centering
+    \includegraphics[width=\textwidth]{Figures/jmeaehpgoaglbpdo.png}
+\end{frame}
+
+% Frame
+% \input{transportation.tex}
+
+%\input{security.tex}
+
+
+\section{CPS-Enabled Management Procedures for Unsafe Driving Behaviors}
+
+% Frame 25
+\begin{frame}{\textbf{Description of the Data}}
+\only<1>{
+    \smartdiagramset{
+      bubble center node font = \small,
+      bubble node font = \scriptsize,
+      bubble center node size =3.75cm,
+      bubble node size =1.5cm
+    }
+    \tikzset{
+      bubble node/.append style={
+        text width=2.0cm,
+        align=center}
+    }
+
+\centering
+
+\smartdiagram[bubble diagram]{\textbf{Data Sources},
+      \textbf{Real-time pings} (lat + long + driver ID + speed), \textbf{SCE} (hard brake + headway + collison mitigation + rolling stability), \textbf{Driver \\ demographics}, \textbf{Road geometry} (speed limits + number of lanes + type of road), \textbf{Weather} (visibility + precipitation prob + precipitation intensity + wind speed)}
+}
+
+\only<2>{
+    \centering
+
+    \smartdiagram[descriptive diagram]{
+    {\textbf{Trips}, {real-time pings stopped at $\ge20$ minutes}},
+    {\textbf{Shifts}, {Trips are further divided into different shifts if the driver was not moving for at least eight hours.}},
+    }
+}
+    
+\only<3>{
+    \includegraphics[width=\textwidth, height = 0.8\textheight, keepaspectratio, frame]{Figures/flow_chart.png}
+}
+
+\only<4>{
+    \begin{eBox}
+        All data and code available at \href{https://github.com/caimiao0714/ISQC2019truck}{https://github.com/caimiao0714/ISQC2019truck}
+    \end{eBox}
+}
+    
+\end{frame}
+
+% Frame 29
+\begin{frame}{Note on Hierarchical Bayesian Logit \& Poisson Models}
+
+\only<1>{
+    \textbf{Bayesian Random-Effects Logistic Regression Model:}
+    
+    \begin{equation}\label{eq:logit}
+        \begin{split}
+            Y_{i} &\sim \text{Bernoulli}(p_{i})\\
+            \log\frac{p_{i}}{1-p_{i}} &= \beta_{0, d(i)} + \beta_{1, d(i)} \cdot \text{CT}_i + \sum_{j=1}^{J} x_{ij}\beta_j\\
+            \beta_{0, d} &\sim \text{i.i.d. } N(\mu_0, \sigma_0^2), \quad d = 1, 2, \cdots, D\\
+            \beta_{1, d} &\sim \text{i.i.d. } N(\mu_1, \sigma_1^2), \quad d = 1, 2, \cdots, D
+            \end{split}
+            \tag{1}
+        \end{equation}
+        \begin{itemize}
+            \item $Y_i$: whether SCEs occurred during the interval, 0 or 1,
+            \item CT$_i$: cumulative driving time,
+            \item $\beta_{0, d}$: random intercepts for each driver,
+            \item $\beta_{1, d}$: random slopes for CT$_i$ for each driver,
+            \item $x_{ij}$: covariates, including age, road geometry, and weather.
+        \end{itemize}
+
+}
+
+\only<2>{
+    \textbf{Bayesian Random-Effects Poisson Regression Model:}
+    \begin{equation}\label{eq:pois}
+\begin{split}
+Y_{i}  & \sim \text{Poisson}(T_i\cdot\lambda_i)\\
+\log\lambda_{i} & =\beta_{0, d(i)} + \beta_{1, d(i)} \cdot \text{CT}_i + \sum_{j=1}^{J} x_{ij}\beta_j\\
+\beta_{0, d} &\sim \text{i.i.d. } N(\mu_0, \sigma_0^2), \quad d = 1, 2, \cdots, D\\
+\beta_{1, d} &\sim \text{i.i.d. } N(\mu_1, \sigma_1^2), \quad d = 1, 2, \cdots, D
+\end{split}
+\tag{2}
+\end{equation}
+\begin{itemize}
+    \item $Y_i$: the number of SCEs during the interval, a non-negative integer,
+    \item $T_i$: length of the interval as an offset term,
+    \item CT$_i$: cumulative driving time,
+    \item $\beta_{0, d}$: random intercepts for each driver,
+    \item $\beta_{1, d}$: random slopes for CT$_i$ for each driver,
+    \item $x_{ij}$: covariates, including age, road geometry, and weather.
+\end{itemize}
+    
+}
+
+\only<3>{
+ \textbf{Weakly informative} priors and hyper-priors as recommended by Gelman \cite{gelman2017prior}.
+\begin{equation}
+	\label{eq:prior}
+	\begin{split}
+		\mu_0 & \sim N(0, 5^2)\\
+		\mu_1 & \sim N(0, 5^2)\\
+		\sigma_0 & \sim \text{Gamma}(1, 1)\\
+		\sigma_1 & \sim \text{Gamma}(1, 1)\\
+		\beta_2, \beta_3, \cdots, \beta_J  & \sim N(0, 10^2)
+	\end{split}
+	\tag{3}
+\end{equation}
+\begin{itemize}
+    \item $\mu_0, \sigma_0$: hyper-parameters for $\beta_{0, d}$,
+    \item $\mu_1, \sigma_1$: hyper-parameters for $\beta_{1, d}$,
+    \item $\beta_2, \beta_3, \cdots, \beta_J$: fixed parameters for covariates $x_{ij}$.
+\end{itemize}
+ 
+ 
+}
+
+\end{frame}
+
+% Frame 27 - NHPP - theory
+\begin{frame}{\textbf{Non-homogeneous Poisson Process: Introduction}}
+\begin{itemize}
+    \item The \textbf{intensity function} of a point process is \begin{equation}
+        \lambda(t) = \lim_{\Delta t \rightarrow 0}\frac{P(N(t, t+\Delta t] \geq 1)}{\Delta t} \tag{4}
+    \end{equation}
+    \item \textbf{Nonhomogeneous Poisson Process (NHPP)}: a Poisson process whose intensity function is non-constant.
+    \item \textbf{Power law process (PLP)}: the intensity function of a NHPP is \begin{equation}
+        \lambda(t) = \frac{\beta}{\theta}\bigg(\frac{t}{\theta}\bigg)^{\beta-1}, \quad \beta > 0, \theta > 0. \tag{5}
+    \end{equation}
+    \item $\beta$ is the shape parameter.  $\theta$ is the scale parameter.
+    \item $\beta > 1 \rightarrow$ reliability deterioration; $\beta > 1 \rightarrow$ reliability improvement.
+\end{itemize}
+\end{frame}
+
+% Frame 28: NHPP - notations
+\begin{frame}{\textbf{Non-homogeneous Poisson process: data}}
+\begin{columns}
+\begin{column}{.64\textwidth}
+\begin{itemize}
+\item $T_{d, s, i}$: the time to the $d$-th driver's $s$-th shift's $i$-th critical event,
+\item $d$: driver index, $d = 1, 2, \cdots, D$
+\item $s$: shift index, $s = 1, 2, \cdots, S_d$,
+\item $i$: SCE index, $i = 1, 2, \cdots, n_{d, S_d}$
+\item $n_{d,s}$: the total number critical events of $d$-th driver's $s$-th shift. 
+\end{itemize}
+\end{column}
+\hfill
+\begin{column}{.35\textwidth}
+\begin{figure}
+  \includegraphics[width=\textwidth]{Figures/t2events_arrow_plot.png}
+  \caption{Arrow plot of time to SCEs in each shift}
+\end{figure}
+\end{column}
+\end{columns}
+\end{frame}
+
+% Frame 29: NHPP - stats model
+\begin{frame}{\textbf{Bayesian random-intercepts NHPP}}
+\begin{equation}\label{eq:nhpp}
+\begin{aligned}
+T_{d, s, 1}, T_{d, s, 2}, \cdots , T_{d, s, n_{d, s}} & \sim \text{PLP}(\beta, \theta_{d, s})\\
+\beta & \sim \text{Gamma}(1, 1)\\
+\log\theta_{d, s} &= \gamma_{0d} + \gamma_{1}x_{d, s, 1} + \gamma_{2}x_{d, s, 2} + \cdots + \gamma_{k}x_{d, s, k}\\
+\gamma_{01}, \gamma_{02}, \cdots, \gamma_{0D} & \sim \text{i.i.d. }N(\mu_0, \sigma_0^2)\\
+\gamma_1, \gamma_2, \cdots, \gamma_k & \sim \text{i.i.d. }N(0, 10^2)\\
+\mu_0 &\sim N(0, 5^2) \\
+\sigma_0 &\sim \text{Gamma}(1, 1)
+\end{aligned}
+\tag{6}
+\end{equation}
+\begin{itemize}
+    \item a fixed $\beta$ across drivers, 
+    \item random parameters $\theta_{d, s}$ across drivers
+    \item $\theta_{d, s}$: random intercepts $\gamma_{0d}$ for scale parameter $\theta$,
+    \item $x_{d, s, k}$: covariates.
+\end{itemize}
+\end{frame}
+
+
+% Frame 30
+\begin{frame}{\textbf{Initial Results for the Hierarchical Bayesian NHPP}}
+    \centering
+    \includegraphics[height=0.8\textheight, width=\textwidth, keepaspectratio, frame]{Figures/fit_plp.png}
+    
+\end{frame}
+
+% Frame 31
+\begin{frame}{\textbf{Opportunities for Future Research}}
+    \begin{dBox}
+        \begin{itemize}
+    \item<1> \textbf{\textcolor{miamired}{Model tuning/optimization:} Incorporating the effects of weather, road geometry, etc in the model}
+    
+    \item<2>\textbf{\textcolor{miamired}{Parallelization:} Facilitating the computations for the entire dataset of 12,000 drivers.}
+    
+    \end{itemize}
+    \end{dBox}
+\end{frame}
+
+%\input{transportation.tex}
+    
+\section{An Introduction to biometrics for Cyber/Computer Security}
+
+% Frame 33
+\begin{frame}{Human-Human Authentication}
+    \begin{itemize}
+    \item \textbf{User authentication} 
+    \begin{itemize}
+    \item \textbf{Differentiate one human user from another}
+    \end{itemize}
+    \item \textbf{Prominent authentication approaches}
+    \begin{itemize}
+    \item \textbf{Passwords}
+    \item \textbf{Traditional biometrics}
+    \end{itemize}
+    \end{itemize}
+\end{frame}
+
+
+
+\begin{frame}{Limitations of Existing User Authentication Solutions}
+
+\begin{columns}
+    \begin{column}{0.5\textwidth}
+        \begin{itemize}
+            \item \textbf{Passwords} 
+            \begin{itemize}
+                \item \textbf{Either insecure or unusable} 
+            \end{itemize}
+            \item \textbf{Traditional biometrics (e.g., fingerprints)}
+            \begin{itemize}
+                \item \textbf{Invasive}
+                \item \textbf{High rejection rates}
+                \item \textbf{Require additional hardware}
+                \item \textbf{Susceptible to impersonation or spoofing}
+            \end{itemize}
+        \end{itemize}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+        \centering 
+        \only<1>{
+        \includegraphics[width=\textwidth, frame]{Figures/password_usability.jpg}
+        }
+        \only<2>{
+        \includegraphics[width=\linewidth]{Figures/spoofing}
+        }
+    \end{column}
+\end{columns}
+
+\end{frame}
+
+
+% Frame 35
+
+\begin{frame}{Behavioral Biometrics}
+    \begin{itemize}
+    \item \textbf{Keystroke dynamics} \cite{monrose1997authentication}
+    \item \textbf{Mouse movement patterns} \cite{zheng2011efficient}
+    \item \textbf{Touch gesture biometrics}
+    \begin{itemize}
+    \item \textbf{Sliding horizontally and vertically} \cite{frank2012touchalytics}
+    \item \textbf{Sliding up, down, left,  and right and tap } \cite{li2013unobservable}
+    \item \textbf{Horizontal slide and the pattern unlock} \cite{de2012touch}
+    \end{itemize}
+    \end{itemize}
+    
+    
+    \begin{center}
+    \includegraphics[width=0.6\linewidth]{Figures/bio2}
+    \end{center}
+\end{frame}
+
+
+
+
+\begin{frame}{Gametrics: An Example Based on \cite{mohamed2016gametrics}}
+    \begin{itemize}
+        \item \textbf{Interactive game-based behavioral biometrics}
+        \item \textbf{Why games?}
+        \begin{itemize}
+            	\item Fully supported by web browsers and touch screen devices
+            	\item Randomized, interactive and cognitive nature
+            	\item Sufficient cues can be extracted in a short period of time 
+        \end{itemize}
+    \end{itemize}
+    
+    
+    \begin{center}
+    	\includemedia[height=0.5\textheight,activate=pageopen,
+    	passcontext,
+    	transparent,
+    	addresource=game.mp4,
+    	flashvars={source=game.mp4}
+    	]{\includegraphics[height=0.5\textheight, frame]{Figures/game.PNG}}{VPlayer.swf}
+    \end{center}
+
+\end{frame}
+
+
+
+
+\begin{frame}{Future Research Opportunities}
+
+\begin{eBox}
+   \textbf{Using statistical methods to characterize/model wihin-user variations.} 
+   
+   \begin{itemize}
+       \item \textbf{In my opinion, we should not treat this as a binary classification problem.}
+   \end{itemize}
+\end{eBox}
+
+
+\end{frame}
+
+\section{Conclusions}
+
+% Frame 39
+\begin{frame}{Summary (``Luck is What Happens When Preparation Meets Opportunity")}
+    \centering 
+    \includegraphics[width=\textwidth, height= 0.77\textheight, keepaspectratio, frame]{Figures/McKinsey-Global-Institute_IoT.jpg} 
+    
+    \tiny{\textbf{Source:} McKinsey\&Company. The McKinsey Global Institute \cite{mckinsey2015}.}
+\end{frame}
+
+\begin{frame}{\textbf{Acknowledgments}}
+    \only<1>{
+        \begin{block}{\textbf{Key Contributors to the Projects}}
+        \begin{itemize}
+            \item \textcolor{miamired}{\textbf{Lora Cavuoto, PhD}} \hfill \textcolor{miamired}{\textbf{University at Buffalo}}
+            
+            \item \textbf{Tessa Chen, PhD} \hfill \textbf{University of Dayton}
+            
+            \item \textcolor{miamired}{\textbf{Zahra Sadighi Maman, PhD}} \hfill \textcolor{miamired}{\textbf{Adelphi University}}
+            
+            \item \textbf{Mohammad Ali Alamdar Yazdi, PhD} \hfill \textbf{John Hopkins University} 
+            
+            \item \textcolor{miamired}{\textbf{Alex Vinel, PhD}} \hfill \textcolor{miamired}{\textbf{Auburn University}}
+            
+        \end{itemize}
+            
+        \end{block}
+    }
+
+    \only<2>{This work was supported in part by: the \textbf{National Science Foundation} (CMMI-1635927 and CMMI-1634992); the \textbf{Ohio Supercomputer Center} (PMIU0138 and PMIU0162); the\textbf{ American Society of Safety Professionals (ASSP) Foundation}; the \textbf{University of Cincinnati Education and Research Center Pilot Research Project Training Program}; the \textbf{Transportation Informatics Tier I University Transportation Center (TransInfo)}; a \textbf{Google Cloud Platform research grant} for data management; and a \textbf{Dark Sky grant} for extended API access. Dr. Megahed's research was also partially supported by the \textbf{Neil R. Anderson Endowed Assistant Professorship at Miami University}.}
+\end{frame}
+
+\section*{Bibliography}
+% Frame
+\begin{frame}[allowframebreaks]{References}%in case more than 1 slide needed
+\tiny{
+	\bibliographystyle{unsrt}
+	\bibliography{refs}
+	}
+\end{frame}
+
+\maketitle
+\end{document}

@@ -1,0 +1,63 @@
+\begin{thebibliography}{10}
+
+\bibitem{nsf2019cps}
+Cyber physical systems {(CPS)} | {NSF 19-553}.
+\newblock https://www.nsf.gov/pubs/2019/nsf19553/nsf19553.htm, 2019.
+\newblock [Online. Last accessed August 4, 2019].
+
+\bibitem{mckinsey2015}
+{The Internet of Things: Mapping the value beyond the hype}.
+\newblock {McKinsey\&Company.}
+  \url{https://www.mckinsey.com/~/media/McKinsey/Business\%20Functions/McKinsey\%20Digital/Our\%20Insights/The\%20Internet\%20of\%20Things\%20The\%20value\%20of\%20digitizing\%20the\%20physical\%20world/The-Internet-of-things-Mapping-the-value-beyond-the-hype.ashx},
+  2015.
+\newblock [Online. Last accessed August 8, 2019].
+
+\bibitem{lazariv2018challenges}
+Taras Lazariv and Wolfgang Schmid.
+\newblock Challenges in monitoring non-stationary time series.
+\newblock In {\em Frontiers in Statistical Quality Control 12}, pages 257--275.
+  Springer, 2018.
+
+\bibitem{kolus2018production}
+Ahmet Kolus, Richard Wells, and Patrick Neumann.
+\newblock Production quality and human factors engineering: a systematic review
+  and theoretical framework.
+\newblock {\em Applied Ergonomics}, 73:55--89, 2018.
+
+\bibitem{azevedo2008kdd}
+Ana Isabel Roj{\~a}o~Louren{\c{c}}o Azevedo and Manuel~Filipe Santos.
+\newblock Kdd, semma and crisp-dm: a parallel overview.
+\newblock {\em IADS-DM}, 2008.
+
+\bibitem{scikit2019choosing}
+Choosing the right estimator.
+\newblock
+  \url{https://scikit-learn.org/stable/tutorial/machine_learning_map/index.html},
+  2019.
+\newblock [Online. Last accessed August 4, 2019].
+
+\bibitem{gelman2017prior}
+Andrew Gelman, Daniel Simpson, and Michael Betancourt.
+\newblock The prior can often only be understood in the context of the
+  likelihood.
+\newblock {\em Entropy}, 19(10):555, 2017.
+
+\bibitem{hoffman2014no}
+Matthew~D Hoffman and Andrew Gelman.
+\newblock The no-u-turn sampler: adaptively setting path lengths in hamiltonian
+  monte carlo.
+\newblock {\em Journal of Machine Learning Research}, 15(1):1593--1623, 2014.
+
+\bibitem{carpenter2017stan}
+Bob Carpenter, Andrew Gelman, Matthew~D Hoffman, Daniel Lee, Ben Goodrich,
+  Michael Betancourt, Marcus Brubaker, Jiqiang Guo, Peter Li, and Allen
+  Riddell.
+\newblock Stan: A probabilistic programming language.
+\newblock {\em Journal of statistical software}, 76(1), 2017.
+
+\bibitem{gelman1992inference}
+Andrew Gelman, Donald~B Rubin, et~al.
+\newblock Inference from iterative simulation using multiple sequences.
+\newblock {\em Statistical science}, 7(4):457--472, 1992.
+
+\end{thebibliography}

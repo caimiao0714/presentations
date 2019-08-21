@@ -1,0 +1,10 @@
+\beamer@sectionintoc {1}{Preface}{2}{0}{1}
+\beamer@sectionintoc {2}{The Era of Cyber-Physical Systems (CPS)}{6}{0}{2}
+\beamer@subsectionintoc {2}{1}{Perspectives from Industry and Governing Research Bodies}{7}{0}{2}
+\beamer@subsectionintoc {2}{2}{A Human-Centered Look on Cyber-Physical Systems}{10}{0}{2}
+\beamer@subsectionintoc {2}{3}{The SQC Community's Interest in Human Performance Modeling}{17}{0}{2}
+\beamer@sectionintoc {3}{How SQC can Inform/Augment AI for CPS Applications}{22}{0}{3}
+\beamer@sectionintoc {4}{Wearable Sensors for Physical Fatigue Management}{28}{0}{4}
+\beamer@sectionintoc {5}{CPS-Enabled Management Procedures for Unsafe Driving Behaviors}{49}{0}{5}
+\beamer@sectionintoc {6}{An Introduction to biometrics for Cyber/Computer Security}{63}{0}{6}
+\beamer@sectionintoc {7}{Conclusions}{70}{0}{7}
